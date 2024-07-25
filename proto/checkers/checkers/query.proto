@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package checkers.checkers;
 
 import "amino/amino.proto";
@@ -6,25 +7,38 @@ import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "checkers/checkers/params.proto";
+import "checkers/checkers/system_info.proto";
 
 option go_package = "github.com/olimdzhon/checkers/x/checkers/types";
 
 // Query defines the gRPC querier service.
 service Query {
+  
   // Parameters queries the parameters of the module.
-  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
     option (google.api.http).get = "/olimdzhon/checkers/checkers/params";
+  
+  }
+  
+  // Queries a SystemInfo by index.
+  rpc SystemInfo (QueryGetSystemInfoRequest) returns (QueryGetSystemInfoResponse) {
+    option (google.api.http).get = "/olimdzhon/checkers/checkers/system_info";
+  
   }
 }
-
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
 
 // QueryParamsResponse is response type for the Query/Params RPC method.
 message QueryParamsResponse {
+  
   // params holds all the parameters of this module.
-  Params params = 1 [
-    (gogoproto.nullable) = false,
-    (amino.dont_omitempty) = true
-  ];
+  Params params = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
 }
+
+message QueryGetSystemInfoRequest {}
+
+message QueryGetSystemInfoResponse {
+  SystemInfo SystemInfo = 1 [(gogoproto.nullable) = false];
+}
+

@@ -1,0 +1,9 @@
+syntax = "proto3";
+package checkers.checkers;
+
+option go_package = "github.com/olimdzhon/checkers/x/checkers/types";
+
+message SystemInfo {
+  uint64 nextId = 1; 
+  
+}
