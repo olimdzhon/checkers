@@ -8,6 +8,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "checkers/checkers/params.proto";
 import "checkers/checkers/system_info.proto";
+import "checkers/checkers/stored_game.proto";
 
 option go_package = "github.com/olimdzhon/checkers/x/checkers/types";
 
@@ -25,6 +26,16 @@ service Query {
     option (google.api.http).get = "/olimdzhon/checkers/checkers/system_info";
   
   }
+  
+  // Queries a list of StoredGame items.
+  rpc StoredGame    (QueryGetStoredGameRequest) returns (QueryGetStoredGameResponse) {
+    option (google.api.http).get = "/olimdzhon/checkers/checkers/stored_game/{index}";
+  
+  }
+  rpc StoredGameAll (QueryAllStoredGameRequest) returns (QueryAllStoredGameResponse) {
+    option (google.api.http).get = "/olimdzhon/checkers/checkers/stored_game";
+  
+  }
 }
 // QueryParamsRequest is request type for the Query/Params RPC method.
 message QueryParamsRequest {}
@@ -40,5 +51,22 @@ message QueryGetSystemInfoRequest {}
 
 message QueryGetSystemInfoResponse {
   SystemInfo SystemInfo = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetStoredGameRequest {
+  string index = 1;
+}
+
+message QueryGetStoredGameResponse {
+  StoredGame storedGame = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllStoredGameRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllStoredGameResponse {
+  repeated StoredGame                             storedGame = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 

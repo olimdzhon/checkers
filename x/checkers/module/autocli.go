@@ -22,6 +22,17 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "show-system-info",
 					Short:     "show systemInfo",
 				},
+				{
+					RpcMethod: "StoredGameAll",
+					Use:       "list-stored-game",
+					Short:     "List all storedGame",
+				},
+				{
+					RpcMethod:      "StoredGame",
+					Use:            "show-stored-game [id]",
+					Short:          "Shows a storedGame",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "index"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
