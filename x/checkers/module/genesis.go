@@ -10,9 +10,8 @@ import (
 // InitGenesis initializes the module's state from a provided genesis state.
 func InitGenesis(ctx sdk.Context, k keeper.Keeper, genState types.GenesisState) {
 	// Set if defined
-	if genState.SystemInfo != nil {
-		k.SetSystemInfo(ctx, *genState.SystemInfo)
-	}
+	k.SetSystemInfo(ctx, genState.SystemInfo)
+
 	// Set all the storedGame
 	for _, elem := range genState.StoredGameList {
 		k.SetStoredGame(ctx, elem)
@@ -31,7 +30,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	// Get all systemInfo
 	systemInfo, found := k.GetSystemInfo(ctx)
 	if found {
-		genesis.SystemInfo = &systemInfo
+		genesis.SystemInfo = systemInfo
 	}
 	genesis.StoredGameList = k.GetAllStoredGame(ctx)
 	// this line is used by starport scaffolding # genesis/module/export
