@@ -23,3 +23,11 @@ func (msg *MsgCreateGame) ValidateBasic() error {
 	}
 	return nil
 }
+
+func (msg *MsgCreateGame) GetSigners() []sdk.AccAddress {
+    creator, err := sdk.AccAddressFromBech32(msg.Creator)
+    if err != nil {
+        panic(err)
+    }
+    return []sdk.AccAddress{creator}
+}
