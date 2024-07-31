@@ -53,3 +53,44 @@ func TestCreate1GameHasSaved(t *testing.T) {
 		Red:   carol,
 	}, game1)
 }
+
+func TestCreate1GameGetAll(t *testing.T) {
+	msgSrvr, keeper, context := setupMsgServerCreateGame(t)
+	msgSrvr.CreateGame(context, &types.MsgCreateGame{
+		Creator: alice,
+		Black:   bob,
+		Red:     carol,
+	})
+	games := keeper.GetAllStoredGame(sdk.UnwrapSDKContext(context))
+	require.Len(t, games, 1)
+	require.EqualValues(t, types.StoredGame{
+		Index: "1",
+		Board: "*b*b*b*b|b*b*b*b*|*b*b*b*b|********|********|r*r*r*r*|*r*r*r*r|r*r*r*r*",
+		Turn:  "b",
+		Black: bob,
+		Red:   carol,
+	}, games[0])
+}
+
+func TestCreate1GameEmitted(t *testing.T) {
+	msgSrvr, _, context := setupMsgServerCreateGame(t)
+	ctx := sdk.UnwrapSDKContext(context)
+	msgSrvr.CreateGame(context, &types.MsgCreateGame{
+		Creator: alice,
+		Black:   bob,
+		Red:     carol,
+	})
+	require.NotNil(t, ctx)
+	events := sdk.StringifyEvents(ctx.EventManager().ABCIEvents())
+	require.Len(t, events, 1)
+	event := events[0]
+	require.EqualValues(t, sdk.StringEvent{
+		Type: "new-game-created",
+		Attributes: []sdk.Attribute{
+			{Key: "creator", Value: alice},
+			{Key: "game-index", Value: "1"},
+			{Key: "black", Value: bob},
+			{Key: "red", Value: carol},
+		},
+	}, event)
+}
