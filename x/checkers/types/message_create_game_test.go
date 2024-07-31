@@ -1,29 +1,53 @@
-package types
+package types_test
 
 import (
 	"testing"
 
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/olimdzhon/checkers/testutil/sample"
+	"github.com/olimdzhon/checkers/x/checkers/types"
 	"github.com/stretchr/testify/require"
 )
 
 func TestMsgCreateGame_ValidateBasic(t *testing.T) {
 	tests := []struct {
 		name string
-		msg  MsgCreateGame
+		msg  types.MsgCreateGame
 		err  error
 	}{
 		{
-			name: "invalid address",
-			msg: MsgCreateGame{
+			name: "invalid creator address",
+			msg: types.MsgCreateGame{
 				Creator: "invalid_address",
+				Black: sample.AccAddress(),
+				Red: sample.AccAddress(),
 			},
 			err: sdkerrors.ErrInvalidAddress,
-		}, {
-			name: "valid address",
-			msg: MsgCreateGame{
+		}, 
+		{
+			name: "invalid black address",
+			msg: types.MsgCreateGame{
 				Creator: sample.AccAddress(),
+				Black: "invalid_address",
+				Red: sample.AccAddress(),
+			},
+			err: sdkerrors.ErrInvalidAddress,
+		}, 
+		{
+			name: "invalid red address",
+			msg: types.MsgCreateGame{
+				Creator: sample.AccAddress(),
+				Black: sample.AccAddress(),
+				Red: "invalid_address",
+			},
+			err: sdkerrors.ErrInvalidAddress,
+		}, 
+		{
+			name: "valid address",
+			msg: types.MsgCreateGame{
+				Creator: sample.AccAddress(),
+				Black: sample.AccAddress(),
+				Red: sample.AccAddress(),
 			},
 		},
 	}
