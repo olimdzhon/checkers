@@ -13,15 +13,17 @@ import (
 )
 
 var (
-	md_StoredGame           protoreflect.MessageDescriptor
-	fd_StoredGame_index     protoreflect.FieldDescriptor
-	fd_StoredGame_board     protoreflect.FieldDescriptor
-	fd_StoredGame_turn      protoreflect.FieldDescriptor
-	fd_StoredGame_black     protoreflect.FieldDescriptor
-	fd_StoredGame_red       protoreflect.FieldDescriptor
-	fd_StoredGame_winner    protoreflect.FieldDescriptor
-	fd_StoredGame_deadline  protoreflect.FieldDescriptor
-	fd_StoredGame_moveCount protoreflect.FieldDescriptor
+	md_StoredGame             protoreflect.MessageDescriptor
+	fd_StoredGame_index       protoreflect.FieldDescriptor
+	fd_StoredGame_board       protoreflect.FieldDescriptor
+	fd_StoredGame_turn        protoreflect.FieldDescriptor
+	fd_StoredGame_black       protoreflect.FieldDescriptor
+	fd_StoredGame_red         protoreflect.FieldDescriptor
+	fd_StoredGame_winner      protoreflect.FieldDescriptor
+	fd_StoredGame_deadline    protoreflect.FieldDescriptor
+	fd_StoredGame_moveCount   protoreflect.FieldDescriptor
+	fd_StoredGame_beforeIndex protoreflect.FieldDescriptor
+	fd_StoredGame_afterIndex  protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -35,6 +37,8 @@ func init() {
 	fd_StoredGame_winner = md_StoredGame.Fields().ByName("winner")
 	fd_StoredGame_deadline = md_StoredGame.Fields().ByName("deadline")
 	fd_StoredGame_moveCount = md_StoredGame.Fields().ByName("moveCount")
+	fd_StoredGame_beforeIndex = md_StoredGame.Fields().ByName("beforeIndex")
+	fd_StoredGame_afterIndex = md_StoredGame.Fields().ByName("afterIndex")
 }
 
 var _ protoreflect.Message = (*fastReflection_StoredGame)(nil)
@@ -150,6 +154,18 @@ func (x *fastReflection_StoredGame) Range(f func(protoreflect.FieldDescriptor, p
 			return
 		}
 	}
+	if x.BeforeIndex != "" {
+		value := protoreflect.ValueOfString(x.BeforeIndex)
+		if !f(fd_StoredGame_beforeIndex, value) {
+			return
+		}
+	}
+	if x.AfterIndex != "" {
+		value := protoreflect.ValueOfString(x.AfterIndex)
+		if !f(fd_StoredGame_afterIndex, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -181,6 +197,10 @@ func (x *fastReflection_StoredGame) Has(fd protoreflect.FieldDescriptor) bool {
 		return x.Deadline != ""
 	case "checkers.checkers.StoredGame.moveCount":
 		return x.MoveCount != uint64(0)
+	case "checkers.checkers.StoredGame.beforeIndex":
+		return x.BeforeIndex != ""
+	case "checkers.checkers.StoredGame.afterIndex":
+		return x.AfterIndex != ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -213,6 +233,10 @@ func (x *fastReflection_StoredGame) Clear(fd protoreflect.FieldDescriptor) {
 		x.Deadline = ""
 	case "checkers.checkers.StoredGame.moveCount":
 		x.MoveCount = uint64(0)
+	case "checkers.checkers.StoredGame.beforeIndex":
+		x.BeforeIndex = ""
+	case "checkers.checkers.StoredGame.afterIndex":
+		x.AfterIndex = ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -253,6 +277,12 @@ func (x *fastReflection_StoredGame) Get(descriptor protoreflect.FieldDescriptor)
 	case "checkers.checkers.StoredGame.moveCount":
 		value := x.MoveCount
 		return protoreflect.ValueOfUint64(value)
+	case "checkers.checkers.StoredGame.beforeIndex":
+		value := x.BeforeIndex
+		return protoreflect.ValueOfString(value)
+	case "checkers.checkers.StoredGame.afterIndex":
+		value := x.AfterIndex
+		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -289,6 +319,10 @@ func (x *fastReflection_StoredGame) Set(fd protoreflect.FieldDescriptor, value p
 		x.Deadline = value.Interface().(string)
 	case "checkers.checkers.StoredGame.moveCount":
 		x.MoveCount = value.Uint()
+	case "checkers.checkers.StoredGame.beforeIndex":
+		x.BeforeIndex = value.Interface().(string)
+	case "checkers.checkers.StoredGame.afterIndex":
+		x.AfterIndex = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -325,6 +359,10 @@ func (x *fastReflection_StoredGame) Mutable(fd protoreflect.FieldDescriptor) pro
 		panic(fmt.Errorf("field deadline of message checkers.checkers.StoredGame is not mutable"))
 	case "checkers.checkers.StoredGame.moveCount":
 		panic(fmt.Errorf("field moveCount of message checkers.checkers.StoredGame is not mutable"))
+	case "checkers.checkers.StoredGame.beforeIndex":
+		panic(fmt.Errorf("field beforeIndex of message checkers.checkers.StoredGame is not mutable"))
+	case "checkers.checkers.StoredGame.afterIndex":
+		panic(fmt.Errorf("field afterIndex of message checkers.checkers.StoredGame is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -354,6 +392,10 @@ func (x *fastReflection_StoredGame) NewField(fd protoreflect.FieldDescriptor) pr
 		return protoreflect.ValueOfString("")
 	case "checkers.checkers.StoredGame.moveCount":
 		return protoreflect.ValueOfUint64(uint64(0))
+	case "checkers.checkers.StoredGame.beforeIndex":
+		return protoreflect.ValueOfString("")
+	case "checkers.checkers.StoredGame.afterIndex":
+		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.StoredGame"))
@@ -454,6 +496,14 @@ func (x *fastReflection_StoredGame) ProtoMethods() *protoiface.Methods {
 		if x.MoveCount != 0 {
 			n += 1 + runtime.Sov(uint64(x.MoveCount))
 		}
+		l = len(x.BeforeIndex)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.AfterIndex)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -482,6 +532,20 @@ func (x *fastReflection_StoredGame) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.AfterIndex) > 0 {
+			i -= len(x.AfterIndex)
+			copy(dAtA[i:], x.AfterIndex)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.AfterIndex)))
+			i--
+			dAtA[i] = 0x52
+		}
+		if len(x.BeforeIndex) > 0 {
+			i -= len(x.BeforeIndex)
+			copy(dAtA[i:], x.BeforeIndex)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.BeforeIndex)))
+			i--
+			dAtA[i] = 0x4a
 		}
 		if x.MoveCount != 0 {
 			i = runtime.EncodeVarint(dAtA, i, uint64(x.MoveCount))
@@ -829,6 +893,70 @@ func (x *fastReflection_StoredGame) ProtoMethods() *protoiface.Methods {
 						break
 					}
 				}
+			case 9:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field BeforeIndex", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.BeforeIndex = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 10:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field AfterIndex", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.AfterIndex = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -882,14 +1010,16 @@ type StoredGame struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Index     string `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
-	Board     string `protobuf:"bytes,2,opt,name=board,proto3" json:"board,omitempty"`
-	Turn      string `protobuf:"bytes,3,opt,name=turn,proto3" json:"turn,omitempty"`
-	Black     string `protobuf:"bytes,4,opt,name=black,proto3" json:"black,omitempty"`
-	Red       string `protobuf:"bytes,5,opt,name=red,proto3" json:"red,omitempty"`
-	Winner    string `protobuf:"bytes,6,opt,name=winner,proto3" json:"winner,omitempty"`
-	Deadline  string `protobuf:"bytes,7,opt,name=deadline,proto3" json:"deadline,omitempty"`
-	MoveCount uint64 `protobuf:"varint,8,opt,name=moveCount,proto3" json:"moveCount,omitempty"`
+	Index       string `protobuf:"bytes,1,opt,name=index,proto3" json:"index,omitempty"`
+	Board       string `protobuf:"bytes,2,opt,name=board,proto3" json:"board,omitempty"`
+	Turn        string `protobuf:"bytes,3,opt,name=turn,proto3" json:"turn,omitempty"`
+	Black       string `protobuf:"bytes,4,opt,name=black,proto3" json:"black,omitempty"`
+	Red         string `protobuf:"bytes,5,opt,name=red,proto3" json:"red,omitempty"`
+	Winner      string `protobuf:"bytes,6,opt,name=winner,proto3" json:"winner,omitempty"`
+	Deadline    string `protobuf:"bytes,7,opt,name=deadline,proto3" json:"deadline,omitempty"`
+	MoveCount   uint64 `protobuf:"varint,8,opt,name=moveCount,proto3" json:"moveCount,omitempty"`
+	BeforeIndex string `protobuf:"bytes,9,opt,name=beforeIndex,proto3" json:"beforeIndex,omitempty"` // Pertains to the FIFO. Toward head.
+	AfterIndex  string `protobuf:"bytes,10,opt,name=afterIndex,proto3" json:"afterIndex,omitempty"`  // Pertains to the FIFO. Toward tail.
 }
 
 func (x *StoredGame) Reset() {
@@ -968,13 +1098,27 @@ func (x *StoredGame) GetMoveCount() uint64 {
 	return 0
 }
 
+func (x *StoredGame) GetBeforeIndex() string {
+	if x != nil {
+		return x.BeforeIndex
+	}
+	return ""
+}
+
+func (x *StoredGame) GetAfterIndex() string {
+	if x != nil {
+		return x.AfterIndex
+	}
+	return ""
+}
+
 var File_checkers_checkers_stored_game_proto protoreflect.FileDescriptor
 
 var file_checkers_checkers_stored_game_proto_rawDesc = []byte{
 	0x0a, 0x23, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b,
 	0x65, 0x72, 0x73, 0x2f, 0x73, 0x74, 0x6f, 0x72, 0x65, 0x64, 0x5f, 0x67, 0x61, 0x6d, 0x65, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x11, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e,
-	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x22, 0xc6, 0x01, 0x0a, 0x0a, 0x53, 0x74, 0x6f,
+	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x22, 0x88, 0x02, 0x0a, 0x0a, 0x53, 0x74, 0x6f,
 	0x72, 0x65, 0x64, 0x47, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x69, 0x6e, 0x64, 0x65, 0x78,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x69, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x14, 0x0a,
 	0x05, 0x62, 0x6f, 0x61, 0x72, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x62, 0x6f,
@@ -987,19 +1131,23 @@ var file_checkers_checkers_stored_game_proto_rawDesc = []byte{
 	0x69, 0x6e, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x64, 0x65, 0x61, 0x64, 0x6c,
 	0x69, 0x6e, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x75, 0x6e, 0x74,
 	0x18, 0x08, 0x20, 0x01, 0x28, 0x04, 0x52, 0x09, 0x6d, 0x6f, 0x76, 0x65, 0x43, 0x6f, 0x75, 0x6e,
-	0x74, 0x42, 0xc2, 0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65,
-	0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x42, 0x0f, 0x53, 0x74, 0x6f,
-	0x72, 0x65, 0x64, 0x47, 0x61, 0x6d, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x33,
-	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6f, 0x6c, 0x69, 0x6d, 0x64,
-	0x7a, 0x68, 0x6f, 0x6e, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x61, 0x70,
-	0x69, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b,
-	0x65, 0x72, 0x73, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x11, 0x43, 0x68, 0x65, 0x63,
-	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xca, 0x02, 0x11,
-	0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72,
-	0x73, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65,
-	0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x3a, 0x3a, 0x43, 0x68,
-	0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x12, 0x20, 0x0a, 0x0b, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78,
+	0x18, 0x09, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x49, 0x6e,
+	0x64, 0x65, 0x78, 0x12, 0x1e, 0x0a, 0x0a, 0x61, 0x66, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x64, 0x65,
+	0x78, 0x18, 0x0a, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x61, 0x66, 0x74, 0x65, 0x72, 0x49, 0x6e,
+	0x64, 0x65, 0x78, 0x42, 0xc2, 0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63,
+	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x42, 0x0f, 0x53,
+	0x74, 0x6f, 0x72, 0x65, 0x64, 0x47, 0x61, 0x6d, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
+	0x5a, 0x33, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6f, 0x6c, 0x69,
+	0x6d, 0x64, 0x7a, 0x68, 0x6f, 0x6e, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f,
+	0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65,
+	0x63, 0x6b, 0x65, 0x72, 0x73, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x11, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xca,
+	0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b,
+	0x65, 0x72, 0x73, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x3a, 0x3a,
+	0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (

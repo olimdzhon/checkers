@@ -13,14 +13,18 @@ import (
 )
 
 var (
-	md_SystemInfo        protoreflect.MessageDescriptor
-	fd_SystemInfo_nextId protoreflect.FieldDescriptor
+	md_SystemInfo               protoreflect.MessageDescriptor
+	fd_SystemInfo_nextId        protoreflect.FieldDescriptor
+	fd_SystemInfo_fifoHeadIndex protoreflect.FieldDescriptor
+	fd_SystemInfo_fifoTailIndex protoreflect.FieldDescriptor
 )
 
 func init() {
 	file_checkers_checkers_system_info_proto_init()
 	md_SystemInfo = File_checkers_checkers_system_info_proto.Messages().ByName("SystemInfo")
 	fd_SystemInfo_nextId = md_SystemInfo.Fields().ByName("nextId")
+	fd_SystemInfo_fifoHeadIndex = md_SystemInfo.Fields().ByName("fifoHeadIndex")
+	fd_SystemInfo_fifoTailIndex = md_SystemInfo.Fields().ByName("fifoTailIndex")
 }
 
 var _ protoreflect.Message = (*fastReflection_SystemInfo)(nil)
@@ -94,6 +98,18 @@ func (x *fastReflection_SystemInfo) Range(f func(protoreflect.FieldDescriptor, p
 			return
 		}
 	}
+	if x.FifoHeadIndex != "" {
+		value := protoreflect.ValueOfString(x.FifoHeadIndex)
+		if !f(fd_SystemInfo_fifoHeadIndex, value) {
+			return
+		}
+	}
+	if x.FifoTailIndex != "" {
+		value := protoreflect.ValueOfString(x.FifoTailIndex)
+		if !f(fd_SystemInfo_fifoTailIndex, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -111,6 +127,10 @@ func (x *fastReflection_SystemInfo) Has(fd protoreflect.FieldDescriptor) bool {
 	switch fd.FullName() {
 	case "checkers.checkers.SystemInfo.nextId":
 		return x.NextId != uint64(0)
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		return x.FifoHeadIndex != ""
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		return x.FifoTailIndex != ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -129,6 +149,10 @@ func (x *fastReflection_SystemInfo) Clear(fd protoreflect.FieldDescriptor) {
 	switch fd.FullName() {
 	case "checkers.checkers.SystemInfo.nextId":
 		x.NextId = uint64(0)
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		x.FifoHeadIndex = ""
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		x.FifoTailIndex = ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -148,6 +172,12 @@ func (x *fastReflection_SystemInfo) Get(descriptor protoreflect.FieldDescriptor)
 	case "checkers.checkers.SystemInfo.nextId":
 		value := x.NextId
 		return protoreflect.ValueOfUint64(value)
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		value := x.FifoHeadIndex
+		return protoreflect.ValueOfString(value)
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		value := x.FifoTailIndex
+		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -170,6 +200,10 @@ func (x *fastReflection_SystemInfo) Set(fd protoreflect.FieldDescriptor, value p
 	switch fd.FullName() {
 	case "checkers.checkers.SystemInfo.nextId":
 		x.NextId = value.Uint()
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		x.FifoHeadIndex = value.Interface().(string)
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		x.FifoTailIndex = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -192,6 +226,10 @@ func (x *fastReflection_SystemInfo) Mutable(fd protoreflect.FieldDescriptor) pro
 	switch fd.FullName() {
 	case "checkers.checkers.SystemInfo.nextId":
 		panic(fmt.Errorf("field nextId of message checkers.checkers.SystemInfo is not mutable"))
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		panic(fmt.Errorf("field fifoHeadIndex of message checkers.checkers.SystemInfo is not mutable"))
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		panic(fmt.Errorf("field fifoTailIndex of message checkers.checkers.SystemInfo is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -207,6 +245,10 @@ func (x *fastReflection_SystemInfo) NewField(fd protoreflect.FieldDescriptor) pr
 	switch fd.FullName() {
 	case "checkers.checkers.SystemInfo.nextId":
 		return protoreflect.ValueOfUint64(uint64(0))
+	case "checkers.checkers.SystemInfo.fifoHeadIndex":
+		return protoreflect.ValueOfString("")
+	case "checkers.checkers.SystemInfo.fifoTailIndex":
+		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.SystemInfo"))
@@ -279,6 +321,14 @@ func (x *fastReflection_SystemInfo) ProtoMethods() *protoiface.Methods {
 		if x.NextId != 0 {
 			n += 1 + runtime.Sov(uint64(x.NextId))
 		}
+		l = len(x.FifoHeadIndex)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.FifoTailIndex)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -307,6 +357,20 @@ func (x *fastReflection_SystemInfo) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.FifoTailIndex) > 0 {
+			i -= len(x.FifoTailIndex)
+			copy(dAtA[i:], x.FifoTailIndex)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.FifoTailIndex)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if len(x.FifoHeadIndex) > 0 {
+			i -= len(x.FifoHeadIndex)
+			copy(dAtA[i:], x.FifoHeadIndex)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.FifoHeadIndex)))
+			i--
+			dAtA[i] = 0x12
 		}
 		if x.NextId != 0 {
 			i = runtime.EncodeVarint(dAtA, i, uint64(x.NextId))
@@ -381,6 +445,70 @@ func (x *fastReflection_SystemInfo) ProtoMethods() *protoiface.Methods {
 						break
 					}
 				}
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field FifoHeadIndex", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.FifoHeadIndex = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field FifoTailIndex", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.FifoTailIndex = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
 				skippy, err := runtime.Skip(dAtA[iNdEx:])
@@ -434,7 +562,9 @@ type SystemInfo struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	NextId uint64 `protobuf:"varint,1,opt,name=nextId,proto3" json:"nextId,omitempty"`
+	NextId        uint64 `protobuf:"varint,1,opt,name=nextId,proto3" json:"nextId,omitempty"`
+	FifoHeadIndex string `protobuf:"bytes,2,opt,name=fifoHeadIndex,proto3" json:"fifoHeadIndex,omitempty"`
+	FifoTailIndex string `protobuf:"bytes,3,opt,name=fifoTailIndex,proto3" json:"fifoTailIndex,omitempty"`
 }
 
 func (x *SystemInfo) Reset() {
@@ -464,28 +594,47 @@ func (x *SystemInfo) GetNextId() uint64 {
 	return 0
 }
 
+func (x *SystemInfo) GetFifoHeadIndex() string {
+	if x != nil {
+		return x.FifoHeadIndex
+	}
+	return ""
+}
+
+func (x *SystemInfo) GetFifoTailIndex() string {
+	if x != nil {
+		return x.FifoTailIndex
+	}
+	return ""
+}
+
 var File_checkers_checkers_system_info_proto protoreflect.FileDescriptor
 
 var file_checkers_checkers_system_info_proto_rawDesc = []byte{
 	0x0a, 0x23, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b,
 	0x65, 0x72, 0x73, 0x2f, 0x73, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x5f, 0x69, 0x6e, 0x66, 0x6f, 0x2e,
 	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x11, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e,
-	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x22, 0x24, 0x0a, 0x0a, 0x53, 0x79, 0x73, 0x74,
+	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x22, 0x70, 0x0a, 0x0a, 0x53, 0x79, 0x73, 0x74,
 	0x65, 0x6d, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x16, 0x0a, 0x06, 0x6e, 0x65, 0x78, 0x74, 0x49, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x06, 0x6e, 0x65, 0x78, 0x74, 0x49, 0x64, 0x42, 0xc2,
-	0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e,
-	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x42, 0x0f, 0x53, 0x79, 0x73, 0x74, 0x65, 0x6d,
-	0x49, 0x6e, 0x66, 0x6f, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x33, 0x67, 0x69, 0x74,
-	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6f, 0x6c, 0x69, 0x6d, 0x64, 0x7a, 0x68, 0x6f,
-	0x6e, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63,
-	0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73,
-	0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72,
-	0x73, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xca, 0x02, 0x11, 0x43, 0x68, 0x65,
-	0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xe2, 0x02,
-	0x1d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65,
-	0x72, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02,
-	0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x3a, 0x3a, 0x43, 0x68, 0x65, 0x63, 0x6b,
-	0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x06, 0x6e, 0x65, 0x78, 0x74, 0x49, 0x64, 0x12, 0x24,
+	0x0a, 0x0d, 0x66, 0x69, 0x66, 0x6f, 0x48, 0x65, 0x61, 0x64, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x66, 0x69, 0x66, 0x6f, 0x48, 0x65, 0x61, 0x64, 0x49,
+	0x6e, 0x64, 0x65, 0x78, 0x12, 0x24, 0x0a, 0x0d, 0x66, 0x69, 0x66, 0x6f, 0x54, 0x61, 0x69, 0x6c,
+	0x49, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x66, 0x69, 0x66,
+	0x6f, 0x54, 0x61, 0x69, 0x6c, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x42, 0xc2, 0x01, 0x0a, 0x15, 0x63,
+	0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63,
+	0x6b, 0x65, 0x72, 0x73, 0x42, 0x0f, 0x53, 0x79, 0x73, 0x74, 0x65, 0x6d, 0x49, 0x6e, 0x66, 0x6f,
+	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x33, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x6f, 0x6c, 0x69, 0x6d, 0x64, 0x7a, 0x68, 0x6f, 0x6e, 0x2f, 0x63, 0x68,
+	0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b,
+	0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xa2, 0x02, 0x03, 0x43,
+	0x43, 0x58, 0xaa, 0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xca, 0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72,
+	0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x65,
+	0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x47,
+	0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x65,
+	0x63, 0x6b, 0x65, 0x72, 0x73, 0x3a, 0x3a, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
