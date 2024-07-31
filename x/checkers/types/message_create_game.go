@@ -22,20 +22,20 @@ func (msg *MsgCreateGame) ValidateBasic() error {
 		return errorsmod.Wrapf(sdkerrors.ErrInvalidAddress, "invalid creator address (%s)", err)
 	}
 	_, err = sdk.AccAddressFromBech32(msg.Black)
-     if err != nil {
-         return errorsmod.Wrapf(sdkerrors.ErrInvalidAddress, "invalid black address (%s)", err)
-     }
-      _, err = sdk.AccAddressFromBech32(msg.Red)
-     if err != nil {
-          return errorsmod.Wrapf(sdkerrors.ErrInvalidAddress, "invalid red address (%s)", err)
-      }
+	if err != nil {
+		return errorsmod.Wrapf(sdkerrors.ErrInvalidAddress, "invalid black address (%s)", err)
+	}
+	_, err = sdk.AccAddressFromBech32(msg.Red)
+	if err != nil {
+		return errorsmod.Wrapf(sdkerrors.ErrInvalidAddress, "invalid red address (%s)", err)
+	}
 	return nil
 }
 
 func (msg *MsgCreateGame) GetSigners() []sdk.AccAddress {
-    creator, err := sdk.AccAddressFromBech32(msg.Creator)
-    if err != nil {
-        panic(err)
-    }
-    return []sdk.AccAddress{creator}
+	creator, err := sdk.AccAddressFromBech32(msg.Creator)
+	if err != nil {
+		panic(err)
+	}
+	return []sdk.AccAddress{creator}
 }

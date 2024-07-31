@@ -27,6 +27,10 @@ const (
 	// TODO: Determine the simulation weight value
 	defaultWeightMsgCreateGame int = 100
 
+	opWeightMsgPlayMove = "op_weight_msg_play_move"
+	// TODO: Determine the simulation weight value
+	defaultWeightMsgPlayMove int = 100
+
 	// this line is used by starport scaffolding # simapp/module/const
 )
 
@@ -61,6 +65,17 @@ func (am AppModule) WeightedOperations(simState module.SimulationState) []simtyp
 		checkerssimulation.SimulateMsgCreateGame(am.accountKeeper, am.bankKeeper, am.keeper),
 	))
 
+	var weightMsgPlayMove int
+	simState.AppParams.GetOrGenerate(opWeightMsgPlayMove, &weightMsgPlayMove, nil,
+		func(_ *rand.Rand) {
+			weightMsgPlayMove = defaultWeightMsgPlayMove
+		},
+	)
+	operations = append(operations, simulation.NewWeightedOperation(
+		weightMsgPlayMove,
+		checkerssimulation.SimulateMsgPlayMove(am.accountKeeper, am.bankKeeper, am.keeper),
+	))
+
 	// this line is used by starport scaffolding # simapp/module/operation
 
 	return operations
@@ -74,6 +89,14 @@ func (am AppModule) ProposalMsgs(simState module.SimulationState) []simtypes.Wei
 			defaultWeightMsgCreateGame,
 			func(r *rand.Rand, ctx sdk.Context, accs []simtypes.Account) sdk.Msg {
 				checkerssimulation.SimulateMsgCreateGame(am.accountKeeper, am.bankKeeper, am.keeper)
+				return nil
+			},
+		),
+		simulation.NewWeightedProposalMsg(
+			opWeightMsgPlayMove,
+			defaultWeightMsgPlayMove,
+			func(r *rand.Rand, ctx sdk.Context, accs []simtypes.Account) sdk.Msg {
+				checkerssimulation.SimulateMsgPlayMove(am.accountKeeper, am.bankKeeper, am.keeper)
 				return nil
 			},
 		),

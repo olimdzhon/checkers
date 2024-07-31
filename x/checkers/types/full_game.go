@@ -32,14 +32,14 @@ func (storedGame StoredGame) ParseGame() (game *rules.Game, err error) {
 }
 
 func (storedGame StoredGame) Validate() (err error) {
-    _, err = storedGame.GetBlackAddress()
-    if err != nil {
-        return err
-    }
-    _, err = storedGame.GetRedAddress()
-    if err != nil {
-        return err
-    }
-    _, err = storedGame.ParseGame()
-    return err
+	_, err = storedGame.GetBlackAddress()
+	if err != nil {
+		return err
+	}
+	_, err = storedGame.GetRedAddress()
+	if err != nil {
+		return err
+	}
+	_, err = storedGame.ParseGame()
+	return err
 }

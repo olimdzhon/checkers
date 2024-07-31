@@ -1839,6 +1839,1198 @@ func (x *fastReflection_MsgCreateGameResponse) ProtoMethods() *protoiface.Method
 	}
 }
 
+var (
+	md_MsgPlayMove           protoreflect.MessageDescriptor
+	fd_MsgPlayMove_creator   protoreflect.FieldDescriptor
+	fd_MsgPlayMove_gameIndex protoreflect.FieldDescriptor
+	fd_MsgPlayMove_fromX     protoreflect.FieldDescriptor
+	fd_MsgPlayMove_fromY     protoreflect.FieldDescriptor
+	fd_MsgPlayMove_toX       protoreflect.FieldDescriptor
+	fd_MsgPlayMove_toY       protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_checkers_checkers_tx_proto_init()
+	md_MsgPlayMove = File_checkers_checkers_tx_proto.Messages().ByName("MsgPlayMove")
+	fd_MsgPlayMove_creator = md_MsgPlayMove.Fields().ByName("creator")
+	fd_MsgPlayMove_gameIndex = md_MsgPlayMove.Fields().ByName("gameIndex")
+	fd_MsgPlayMove_fromX = md_MsgPlayMove.Fields().ByName("fromX")
+	fd_MsgPlayMove_fromY = md_MsgPlayMove.Fields().ByName("fromY")
+	fd_MsgPlayMove_toX = md_MsgPlayMove.Fields().ByName("toX")
+	fd_MsgPlayMove_toY = md_MsgPlayMove.Fields().ByName("toY")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgPlayMove)(nil)
+
+type fastReflection_MsgPlayMove MsgPlayMove
+
+func (x *MsgPlayMove) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgPlayMove)(x)
+}
+
+func (x *MsgPlayMove) slowProtoReflect() protoreflect.Message {
+	mi := &file_checkers_checkers_tx_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgPlayMove_messageType fastReflection_MsgPlayMove_messageType
+var _ protoreflect.MessageType = fastReflection_MsgPlayMove_messageType{}
+
+type fastReflection_MsgPlayMove_messageType struct{}
+
+func (x fastReflection_MsgPlayMove_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgPlayMove)(nil)
+}
+func (x fastReflection_MsgPlayMove_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgPlayMove)
+}
+func (x fastReflection_MsgPlayMove_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgPlayMove
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgPlayMove) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgPlayMove
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgPlayMove) Type() protoreflect.MessageType {
+	return _fastReflection_MsgPlayMove_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgPlayMove) New() protoreflect.Message {
+	return new(fastReflection_MsgPlayMove)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgPlayMove) Interface() protoreflect.ProtoMessage {
+	return (*MsgPlayMove)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgPlayMove) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Creator != "" {
+		value := protoreflect.ValueOfString(x.Creator)
+		if !f(fd_MsgPlayMove_creator, value) {
+			return
+		}
+	}
+	if x.GameIndex != "" {
+		value := protoreflect.ValueOfString(x.GameIndex)
+		if !f(fd_MsgPlayMove_gameIndex, value) {
+			return
+		}
+	}
+	if x.FromX != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.FromX)
+		if !f(fd_MsgPlayMove_fromX, value) {
+			return
+		}
+	}
+	if x.FromY != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.FromY)
+		if !f(fd_MsgPlayMove_fromY, value) {
+			return
+		}
+	}
+	if x.ToX != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.ToX)
+		if !f(fd_MsgPlayMove_toX, value) {
+			return
+		}
+	}
+	if x.ToY != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.ToY)
+		if !f(fd_MsgPlayMove_toY, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgPlayMove) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		return x.Creator != ""
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		return x.GameIndex != ""
+	case "checkers.checkers.MsgPlayMove.fromX":
+		return x.FromX != uint64(0)
+	case "checkers.checkers.MsgPlayMove.fromY":
+		return x.FromY != uint64(0)
+	case "checkers.checkers.MsgPlayMove.toX":
+		return x.ToX != uint64(0)
+	case "checkers.checkers.MsgPlayMove.toY":
+		return x.ToY != uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMove) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		x.Creator = ""
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		x.GameIndex = ""
+	case "checkers.checkers.MsgPlayMove.fromX":
+		x.FromX = uint64(0)
+	case "checkers.checkers.MsgPlayMove.fromY":
+		x.FromY = uint64(0)
+	case "checkers.checkers.MsgPlayMove.toX":
+		x.ToX = uint64(0)
+	case "checkers.checkers.MsgPlayMove.toY":
+		x.ToY = uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgPlayMove) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		value := x.Creator
+		return protoreflect.ValueOfString(value)
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		value := x.GameIndex
+		return protoreflect.ValueOfString(value)
+	case "checkers.checkers.MsgPlayMove.fromX":
+		value := x.FromX
+		return protoreflect.ValueOfUint64(value)
+	case "checkers.checkers.MsgPlayMove.fromY":
+		value := x.FromY
+		return protoreflect.ValueOfUint64(value)
+	case "checkers.checkers.MsgPlayMove.toX":
+		value := x.ToX
+		return protoreflect.ValueOfUint64(value)
+	case "checkers.checkers.MsgPlayMove.toY":
+		value := x.ToY
+		return protoreflect.ValueOfUint64(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMove) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		x.Creator = value.Interface().(string)
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		x.GameIndex = value.Interface().(string)
+	case "checkers.checkers.MsgPlayMove.fromX":
+		x.FromX = value.Uint()
+	case "checkers.checkers.MsgPlayMove.fromY":
+		x.FromY = value.Uint()
+	case "checkers.checkers.MsgPlayMove.toX":
+		x.ToX = value.Uint()
+	case "checkers.checkers.MsgPlayMove.toY":
+		x.ToY = value.Uint()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMove) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		panic(fmt.Errorf("field creator of message checkers.checkers.MsgPlayMove is not mutable"))
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		panic(fmt.Errorf("field gameIndex of message checkers.checkers.MsgPlayMove is not mutable"))
+	case "checkers.checkers.MsgPlayMove.fromX":
+		panic(fmt.Errorf("field fromX of message checkers.checkers.MsgPlayMove is not mutable"))
+	case "checkers.checkers.MsgPlayMove.fromY":
+		panic(fmt.Errorf("field fromY of message checkers.checkers.MsgPlayMove is not mutable"))
+	case "checkers.checkers.MsgPlayMove.toX":
+		panic(fmt.Errorf("field toX of message checkers.checkers.MsgPlayMove is not mutable"))
+	case "checkers.checkers.MsgPlayMove.toY":
+		panic(fmt.Errorf("field toY of message checkers.checkers.MsgPlayMove is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgPlayMove) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMove.creator":
+		return protoreflect.ValueOfString("")
+	case "checkers.checkers.MsgPlayMove.gameIndex":
+		return protoreflect.ValueOfString("")
+	case "checkers.checkers.MsgPlayMove.fromX":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "checkers.checkers.MsgPlayMove.fromY":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "checkers.checkers.MsgPlayMove.toX":
+		return protoreflect.ValueOfUint64(uint64(0))
+	case "checkers.checkers.MsgPlayMove.toY":
+		return protoreflect.ValueOfUint64(uint64(0))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMove"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMove does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgPlayMove) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in checkers.checkers.MsgPlayMove", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgPlayMove) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMove) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgPlayMove) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgPlayMove) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgPlayMove)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Creator)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		l = len(x.GameIndex)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.FromX != 0 {
+			n += 1 + runtime.Sov(uint64(x.FromX))
+		}
+		if x.FromY != 0 {
+			n += 1 + runtime.Sov(uint64(x.FromY))
+		}
+		if x.ToX != 0 {
+			n += 1 + runtime.Sov(uint64(x.ToX))
+		}
+		if x.ToY != 0 {
+			n += 1 + runtime.Sov(uint64(x.ToY))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgPlayMove)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.ToY != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.ToY))
+			i--
+			dAtA[i] = 0x30
+		}
+		if x.ToX != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.ToX))
+			i--
+			dAtA[i] = 0x28
+		}
+		if x.FromY != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.FromY))
+			i--
+			dAtA[i] = 0x20
+		}
+		if x.FromX != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.FromX))
+			i--
+			dAtA[i] = 0x18
+		}
+		if len(x.GameIndex) > 0 {
+			i -= len(x.GameIndex)
+			copy(dAtA[i:], x.GameIndex)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.GameIndex)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Creator) > 0 {
+			i -= len(x.Creator)
+			copy(dAtA[i:], x.Creator)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Creator)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgPlayMove)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgPlayMove: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgPlayMove: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Creator", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Creator = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field GameIndex", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.GameIndex = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 3:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field FromX", wireType)
+				}
+				x.FromX = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.FromX |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 4:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field FromY", wireType)
+				}
+				x.FromY = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.FromY |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 5:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ToX", wireType)
+				}
+				x.ToX = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.ToX |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 6:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field ToY", wireType)
+				}
+				x.ToY = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.ToY |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_MsgPlayMoveResponse           protoreflect.MessageDescriptor
+	fd_MsgPlayMoveResponse_capturedX protoreflect.FieldDescriptor
+	fd_MsgPlayMoveResponse_capturedY protoreflect.FieldDescriptor
+	fd_MsgPlayMoveResponse_winner    protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_checkers_checkers_tx_proto_init()
+	md_MsgPlayMoveResponse = File_checkers_checkers_tx_proto.Messages().ByName("MsgPlayMoveResponse")
+	fd_MsgPlayMoveResponse_capturedX = md_MsgPlayMoveResponse.Fields().ByName("capturedX")
+	fd_MsgPlayMoveResponse_capturedY = md_MsgPlayMoveResponse.Fields().ByName("capturedY")
+	fd_MsgPlayMoveResponse_winner = md_MsgPlayMoveResponse.Fields().ByName("winner")
+}
+
+var _ protoreflect.Message = (*fastReflection_MsgPlayMoveResponse)(nil)
+
+type fastReflection_MsgPlayMoveResponse MsgPlayMoveResponse
+
+func (x *MsgPlayMoveResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_MsgPlayMoveResponse)(x)
+}
+
+func (x *MsgPlayMoveResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_checkers_checkers_tx_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_MsgPlayMoveResponse_messageType fastReflection_MsgPlayMoveResponse_messageType
+var _ protoreflect.MessageType = fastReflection_MsgPlayMoveResponse_messageType{}
+
+type fastReflection_MsgPlayMoveResponse_messageType struct{}
+
+func (x fastReflection_MsgPlayMoveResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_MsgPlayMoveResponse)(nil)
+}
+func (x fastReflection_MsgPlayMoveResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_MsgPlayMoveResponse)
+}
+func (x fastReflection_MsgPlayMoveResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgPlayMoveResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_MsgPlayMoveResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_MsgPlayMoveResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_MsgPlayMoveResponse) Type() protoreflect.MessageType {
+	return _fastReflection_MsgPlayMoveResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_MsgPlayMoveResponse) New() protoreflect.Message {
+	return new(fastReflection_MsgPlayMoveResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_MsgPlayMoveResponse) Interface() protoreflect.ProtoMessage {
+	return (*MsgPlayMoveResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_MsgPlayMoveResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.CapturedX != int32(0) {
+		value := protoreflect.ValueOfInt32(x.CapturedX)
+		if !f(fd_MsgPlayMoveResponse_capturedX, value) {
+			return
+		}
+	}
+	if x.CapturedY != int32(0) {
+		value := protoreflect.ValueOfInt32(x.CapturedY)
+		if !f(fd_MsgPlayMoveResponse_capturedY, value) {
+			return
+		}
+	}
+	if x.Winner != "" {
+		value := protoreflect.ValueOfString(x.Winner)
+		if !f(fd_MsgPlayMoveResponse_winner, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_MsgPlayMoveResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		return x.CapturedX != int32(0)
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		return x.CapturedY != int32(0)
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		return x.Winner != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMoveResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		x.CapturedX = int32(0)
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		x.CapturedY = int32(0)
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		x.Winner = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_MsgPlayMoveResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		value := x.CapturedX
+		return protoreflect.ValueOfInt32(value)
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		value := x.CapturedY
+		return protoreflect.ValueOfInt32(value)
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		value := x.Winner
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMoveResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		x.CapturedX = int32(value.Int())
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		x.CapturedY = int32(value.Int())
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		x.Winner = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMoveResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		panic(fmt.Errorf("field capturedX of message checkers.checkers.MsgPlayMoveResponse is not mutable"))
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		panic(fmt.Errorf("field capturedY of message checkers.checkers.MsgPlayMoveResponse is not mutable"))
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		panic(fmt.Errorf("field winner of message checkers.checkers.MsgPlayMoveResponse is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_MsgPlayMoveResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "checkers.checkers.MsgPlayMoveResponse.capturedX":
+		return protoreflect.ValueOfInt32(int32(0))
+	case "checkers.checkers.MsgPlayMoveResponse.capturedY":
+		return protoreflect.ValueOfInt32(int32(0))
+	case "checkers.checkers.MsgPlayMoveResponse.winner":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: checkers.checkers.MsgPlayMoveResponse"))
+		}
+		panic(fmt.Errorf("message checkers.checkers.MsgPlayMoveResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_MsgPlayMoveResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in checkers.checkers.MsgPlayMoveResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_MsgPlayMoveResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_MsgPlayMoveResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_MsgPlayMoveResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_MsgPlayMoveResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*MsgPlayMoveResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.CapturedX != 0 {
+			n += 1 + runtime.Sov(uint64(x.CapturedX))
+		}
+		if x.CapturedY != 0 {
+			n += 1 + runtime.Sov(uint64(x.CapturedY))
+		}
+		l = len(x.Winner)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*MsgPlayMoveResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Winner) > 0 {
+			i -= len(x.Winner)
+			copy(dAtA[i:], x.Winner)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Winner)))
+			i--
+			dAtA[i] = 0x1a
+		}
+		if x.CapturedY != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.CapturedY))
+			i--
+			dAtA[i] = 0x10
+		}
+		if x.CapturedX != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.CapturedX))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*MsgPlayMoveResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgPlayMoveResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: MsgPlayMoveResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field CapturedX", wireType)
+				}
+				x.CapturedX = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.CapturedX |= int32(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 2:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field CapturedY", wireType)
+				}
+				x.CapturedY = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.CapturedY |= int32(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			case 3:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Winner", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Winner = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -2012,6 +3204,132 @@ func (x *MsgCreateGameResponse) GetGameIndex() string {
 	return ""
 }
 
+type MsgPlayMove struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Creator   string `protobuf:"bytes,1,opt,name=creator,proto3" json:"creator,omitempty"`
+	GameIndex string `protobuf:"bytes,2,opt,name=gameIndex,proto3" json:"gameIndex,omitempty"`
+	FromX     uint64 `protobuf:"varint,3,opt,name=fromX,proto3" json:"fromX,omitempty"`
+	FromY     uint64 `protobuf:"varint,4,opt,name=fromY,proto3" json:"fromY,omitempty"`
+	ToX       uint64 `protobuf:"varint,5,opt,name=toX,proto3" json:"toX,omitempty"`
+	ToY       uint64 `protobuf:"varint,6,opt,name=toY,proto3" json:"toY,omitempty"`
+}
+
+func (x *MsgPlayMove) Reset() {
+	*x = MsgPlayMove{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_checkers_checkers_tx_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgPlayMove) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgPlayMove) ProtoMessage() {}
+
+// Deprecated: Use MsgPlayMove.ProtoReflect.Descriptor instead.
+func (*MsgPlayMove) Descriptor() ([]byte, []int) {
+	return file_checkers_checkers_tx_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *MsgPlayMove) GetCreator() string {
+	if x != nil {
+		return x.Creator
+	}
+	return ""
+}
+
+func (x *MsgPlayMove) GetGameIndex() string {
+	if x != nil {
+		return x.GameIndex
+	}
+	return ""
+}
+
+func (x *MsgPlayMove) GetFromX() uint64 {
+	if x != nil {
+		return x.FromX
+	}
+	return 0
+}
+
+func (x *MsgPlayMove) GetFromY() uint64 {
+	if x != nil {
+		return x.FromY
+	}
+	return 0
+}
+
+func (x *MsgPlayMove) GetToX() uint64 {
+	if x != nil {
+		return x.ToX
+	}
+	return 0
+}
+
+func (x *MsgPlayMove) GetToY() uint64 {
+	if x != nil {
+		return x.ToY
+	}
+	return 0
+}
+
+type MsgPlayMoveResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CapturedX int32  `protobuf:"varint,1,opt,name=capturedX,proto3" json:"capturedX,omitempty"`
+	CapturedY int32  `protobuf:"varint,2,opt,name=capturedY,proto3" json:"capturedY,omitempty"`
+	Winner    string `protobuf:"bytes,3,opt,name=winner,proto3" json:"winner,omitempty"`
+}
+
+func (x *MsgPlayMoveResponse) Reset() {
+	*x = MsgPlayMoveResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_checkers_checkers_tx_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MsgPlayMoveResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MsgPlayMoveResponse) ProtoMessage() {}
+
+// Deprecated: Use MsgPlayMoveResponse.ProtoReflect.Descriptor instead.
+func (*MsgPlayMoveResponse) Descriptor() ([]byte, []int) {
+	return file_checkers_checkers_tx_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *MsgPlayMoveResponse) GetCapturedX() int32 {
+	if x != nil {
+		return x.CapturedX
+	}
+	return 0
+}
+
+func (x *MsgPlayMoveResponse) GetCapturedY() int32 {
+	if x != nil {
+		return x.CapturedY
+	}
+	return 0
+}
+
+func (x *MsgPlayMoveResponse) GetWinner() string {
+	if x != nil {
+		return x.Winner
+	}
+	return ""
+}
+
 var File_checkers_checkers_tx_proto protoreflect.FileDescriptor
 
 var file_checkers_checkers_tx_proto_rawDesc = []byte{
@@ -2049,31 +3367,54 @@ var file_checkers_checkers_tx_proto_rawDesc = []byte{
 	0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x67, 0x61, 0x6d, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x67, 0x61, 0x6d, 0x65, 0x49, 0x6e, 0x64, 0x65,
-	0x78, 0x32, 0xc6, 0x01, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x5e, 0x0a, 0x0c, 0x55, 0x70, 0x64,
-	0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x22, 0x2e, 0x63, 0x68, 0x65, 0x63,
-	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73,
-	0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x2a, 0x2e,
-	0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72,
-	0x73, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d,
-	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x58, 0x0a, 0x0a, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x12, 0x20, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65,
-	0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73, 0x67, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x1a, 0x28, 0x2e, 0x63, 0x68, 0x65, 0x63,
-	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73,
-	0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x1a, 0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42, 0xba, 0x01, 0x0a, 0x15, 0x63,
-	0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63,
-	0x6b, 0x65, 0x72, 0x73, 0x42, 0x07, 0x54, 0x78, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
-	0x33, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6f, 0x6c, 0x69, 0x6d,
-	0x64, 0x7a, 0x68, 0x6f, 0x6e, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x61,
-	0x70, 0x69, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2f, 0x63, 0x68, 0x65, 0x63,
-	0x6b, 0x65, 0x72, 0x73, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x11, 0x43, 0x68, 0x65,
-	0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xca, 0x02,
-	0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65,
-	0x72, 0x73, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43, 0x68,
-	0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x3a, 0x3a, 0x43,
-	0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x78, 0x22, 0xa3, 0x01, 0x0a, 0x0b, 0x4d, 0x73, 0x67, 0x50, 0x6c, 0x61, 0x79, 0x4d, 0x6f, 0x76,
+	0x65, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x12, 0x1c, 0x0a, 0x09, 0x67,
+	0x61, 0x6d, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09,
+	0x67, 0x61, 0x6d, 0x65, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x14, 0x0a, 0x05, 0x66, 0x72, 0x6f,
+	0x6d, 0x58, 0x18, 0x03, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05, 0x66, 0x72, 0x6f, 0x6d, 0x58, 0x12,
+	0x14, 0x0a, 0x05, 0x66, 0x72, 0x6f, 0x6d, 0x59, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x05,
+	0x66, 0x72, 0x6f, 0x6d, 0x59, 0x12, 0x10, 0x0a, 0x03, 0x74, 0x6f, 0x58, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x04, 0x52, 0x03, 0x74, 0x6f, 0x58, 0x12, 0x10, 0x0a, 0x03, 0x74, 0x6f, 0x59, 0x18, 0x06,
+	0x20, 0x01, 0x28, 0x04, 0x52, 0x03, 0x74, 0x6f, 0x59, 0x3a, 0x0c, 0x82, 0xe7, 0xb0, 0x2a, 0x07,
+	0x63, 0x72, 0x65, 0x61, 0x74, 0x6f, 0x72, 0x22, 0x69, 0x0a, 0x13, 0x4d, 0x73, 0x67, 0x50, 0x6c,
+	0x61, 0x79, 0x4d, 0x6f, 0x76, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1c,
+	0x0a, 0x09, 0x63, 0x61, 0x70, 0x74, 0x75, 0x72, 0x65, 0x64, 0x58, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x09, 0x63, 0x61, 0x70, 0x74, 0x75, 0x72, 0x65, 0x64, 0x58, 0x12, 0x1c, 0x0a, 0x09,
+	0x63, 0x61, 0x70, 0x74, 0x75, 0x72, 0x65, 0x64, 0x59, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52,
+	0x09, 0x63, 0x61, 0x70, 0x74, 0x75, 0x72, 0x65, 0x64, 0x59, 0x12, 0x16, 0x0a, 0x06, 0x77, 0x69,
+	0x6e, 0x6e, 0x65, 0x72, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x77, 0x69, 0x6e, 0x6e,
+	0x65, 0x72, 0x32, 0x9a, 0x02, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x12, 0x5e, 0x0a, 0x0c, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x22, 0x2e, 0x63, 0x68, 0x65,
+	0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d,
+	0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x1a, 0x2a,
+	0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65,
+	0x72, 0x73, 0x2e, 0x4d, 0x73, 0x67, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x61, 0x72, 0x61,
+	0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x58, 0x0a, 0x0a, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x12, 0x20, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b,
+	0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73, 0x67,
+	0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x1a, 0x28, 0x2e, 0x63, 0x68, 0x65,
+	0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d,
+	0x73, 0x67, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x61, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x52, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x4d, 0x6f, 0x76, 0x65,
+	0x12, 0x1e, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63,
+	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x6c, 0x61, 0x79, 0x4d, 0x6f, 0x76, 0x65,
+	0x1a, 0x26, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x63, 0x68, 0x65, 0x63,
+	0x6b, 0x65, 0x72, 0x73, 0x2e, 0x4d, 0x73, 0x67, 0x50, 0x6c, 0x61, 0x79, 0x4d, 0x6f, 0x76, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x1a, 0x05, 0x80, 0xe7, 0xb0, 0x2a, 0x01, 0x42,
+	0xba, 0x01, 0x0a, 0x15, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73,
+	0x2e, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x42, 0x07, 0x54, 0x78, 0x50, 0x72, 0x6f,
+	0x74, 0x6f, 0x50, 0x01, 0x5a, 0x33, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x6f, 0x6c, 0x69, 0x6d, 0x64, 0x7a, 0x68, 0x6f, 0x6e, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b,
+	0x65, 0x72, 0x73, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73,
+	0x2f, 0x63, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa,
+	0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b,
+	0x65, 0x72, 0x73, 0xca, 0x02, 0x11, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0xe2, 0x02, 0x1d, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65,
+	0x72, 0x73, 0x5c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65,
+	0x72, 0x73, 0x3a, 0x3a, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x65, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -2088,22 +3429,26 @@ func file_checkers_checkers_tx_proto_rawDescGZIP() []byte {
 	return file_checkers_checkers_tx_proto_rawDescData
 }
 
-var file_checkers_checkers_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_checkers_checkers_tx_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_checkers_checkers_tx_proto_goTypes = []interface{}{
 	(*MsgUpdateParams)(nil),         // 0: checkers.checkers.MsgUpdateParams
 	(*MsgUpdateParamsResponse)(nil), // 1: checkers.checkers.MsgUpdateParamsResponse
 	(*MsgCreateGame)(nil),           // 2: checkers.checkers.MsgCreateGame
 	(*MsgCreateGameResponse)(nil),   // 3: checkers.checkers.MsgCreateGameResponse
-	(*Params)(nil),                  // 4: checkers.checkers.Params
+	(*MsgPlayMove)(nil),             // 4: checkers.checkers.MsgPlayMove
+	(*MsgPlayMoveResponse)(nil),     // 5: checkers.checkers.MsgPlayMoveResponse
+	(*Params)(nil),                  // 6: checkers.checkers.Params
 }
 var file_checkers_checkers_tx_proto_depIdxs = []int32{
-	4, // 0: checkers.checkers.MsgUpdateParams.params:type_name -> checkers.checkers.Params
+	6, // 0: checkers.checkers.MsgUpdateParams.params:type_name -> checkers.checkers.Params
 	0, // 1: checkers.checkers.Msg.UpdateParams:input_type -> checkers.checkers.MsgUpdateParams
 	2, // 2: checkers.checkers.Msg.CreateGame:input_type -> checkers.checkers.MsgCreateGame
-	1, // 3: checkers.checkers.Msg.UpdateParams:output_type -> checkers.checkers.MsgUpdateParamsResponse
-	3, // 4: checkers.checkers.Msg.CreateGame:output_type -> checkers.checkers.MsgCreateGameResponse
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	4, // 3: checkers.checkers.Msg.PlayMove:input_type -> checkers.checkers.MsgPlayMove
+	1, // 4: checkers.checkers.Msg.UpdateParams:output_type -> checkers.checkers.MsgUpdateParamsResponse
+	3, // 5: checkers.checkers.Msg.CreateGame:output_type -> checkers.checkers.MsgCreateGameResponse
+	5, // 6: checkers.checkers.Msg.PlayMove:output_type -> checkers.checkers.MsgPlayMoveResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -2164,6 +3509,30 @@ func file_checkers_checkers_tx_proto_init() {
 				return nil
 			}
 		}
+		file_checkers_checkers_tx_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgPlayMove); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_checkers_checkers_tx_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MsgPlayMoveResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -2171,7 +3540,7 @@ func file_checkers_checkers_tx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_checkers_checkers_tx_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
