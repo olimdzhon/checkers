@@ -46,9 +46,9 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				},
 				{
 					RpcMethod:      "CreateGame",
-					Use:            "create-game [black] [red]",
+					Use:            "create-game [black] [red] [wager]",
 					Short:          "Send a createGame tx",
-					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "black"}, {ProtoField: "red"}},
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "black"}, {ProtoField: "red"}, {ProtoField: "wager"}},
 				},
 				{
 					RpcMethod:      "PlayMove",
