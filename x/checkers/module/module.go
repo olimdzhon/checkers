@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	abci "github.com/tendermint/tendermint/abci/types"
+
 	"cosmossdk.io/core/appmodule"
 	"cosmossdk.io/core/store"
 	"cosmossdk.io/depinject"
@@ -34,7 +36,7 @@ var (
 
 	_ appmodule.AppModule       = (*AppModule)(nil)
 	_ appmodule.HasBeginBlocker = (*AppModule)(nil)
-	_ appmodule.HasEndBlocker   = (*AppModule)(nil)
+	// _ appmodule.HasEndBlocker   = (*AppModule)(nil)
 )
 
 // ----------------------------------------------------------------------------
@@ -151,8 +153,9 @@ func (am AppModule) BeginBlock(_ context.Context) error {
 
 // EndBlock contains the logic that is automatically triggered at the end of each block.
 // The end block implementation is optional.
-func (am AppModule) EndBlock(_ context.Context) error {
-	return nil
+func (am AppModule) EndBlock(ctx sdk.Context, _ abci.RequestEndBlock) []abci.ValidatorUpdate {
+	am.keeper.ForfeitExpiredGames(sdk.WrapSDKContext(ctx))
+	return []abci.ValidatorUpdate{}
 }
 
 // IsOnePerModuleType implements the depinject.OnePerModuleType interface.
